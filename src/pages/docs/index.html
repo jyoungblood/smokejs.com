@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>smoke.js - documentation</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
+  <link rel="stylesheet" href="../media/css/global.css" />
+  <script data-controller="home" id="js_init" data-main="../control_client/_global"
+    src="../control_client/stereo/require.js"></script>
+
+
+
+</head>
+
+<body id="docs">
+
+
+  <div id="wrap">
+    <div id="main" class="clearfix">
+
+      <div id="head">
+
+        <div id="logo"><a href="../">SMOKE.JS</a></div>
+
+        <ul id="nav">
+          <li><a href="../">DEMOS</a></li>
+          <li><a href="../docs/">DOCS</a></li>
+          <li><a href="../themes/">THEMES</a></li>
+          <li><a href="http://github.com/jyoungblood/smoke.js">SOURCE</a></li>
+          <li><a href="http://github.com/jyoungblood/smoke.js/archive/master.zip">DOWNLOAD ZIP</a></li>
+        </ul>
+      </div>
+
+      <div id="content">
+
+
+        <section>
+          <h3>.alert()</h3>
+
+          <pre>
+smoke.alert("Can I ask you a question?", function(e){
+	
+}, {
+	ok: "Yep",
+	cancel: "Nope",
+	classname: "custom-class"
+});</pre>
+        </section>
+
+
+
+
+
+
+
+
+        <section>
+          <h3>.confirm()</h3>
+
+          <pre>
+smoke.confirm("Are you sure?", function(e){
+	if (e){
+
+	}else{
+
+	}
+}, {
+	ok: "Yep",
+	cancel: "Nope",
+	classname: "custom-class",
+	reverseButtons: true
+});</pre>
+        </section>
+
+
+
+
+
+
+
+
+        <section>
+          <h3>.prompt()</h3>
+
+          <pre>
+smoke.prompt("What's for dinner?", function(e){
+	if (e){
+
+	}else{
+	
+	}
+}, {
+	ok: "Yes",
+	cancel: "No",
+	classname: "custom-class",
+	reverseButtons: true,
+	value: "existential dread"
+});</pre>
+        </section>
+
+
+
+
+
+
+
+
+        <section>
+          <h3>.quiz()</h3>
+
+          <pre>
+smoke.quiz("Which is your favorite?", function(e){
+	if (e == "A"){
+
+	}
+}, {
+	button_1: "A",
+	button_2: "B",
+	button_3: "C",
+	button_4: "D",
+	button_cancel: "Nothing"
+});</pre>
+        </section>
+
+
+
+
+
+
+
+
+        <section>
+          <h3>.signal()</h3>
+
+          <pre>
+smoke.signal("Congratulations! You have just one a free iPod Touch!", function(e){
+
+}, {
+	duration: 3000,
+	classname: "custom-class"
+});</pre>
+        </section>
+
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div id="foot"></div>
+
+
+  <div style="text-align: center; padding: 1rem;">
+    <a target="_blank" href="https://hxgf.io"><img style="width: 5rem;" src="../media/img/hxgf-bug.png" /></a><br />
+    <a target="_blank" style="color: black; text-decoration: none; font-family: sans-serif;"
+      href="https://github.com/jyoungblood/smoke.js.org">src</a>
+  </div>
+
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-2903876-26', 'smoke-js.com');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+
+</html>

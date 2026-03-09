@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>smoke.js - framework-agnostic styled alert system for javascript</title>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<meta name="viewport" content="width=1024">
+
+	<link rel="stylesheet" href="media/css/global.css" />
+
+
+
+</head>
+<body id="demo">
+
+  <div style="text-align: right; padding: 1rem;">
+    <a target="_blank" href="https://hxgf.io"><img style="width: 5rem;" src="./media/img/hxgf-bug.png" /></a><br />
+    <a target="_blank" style="color: black; text-decoration: none; font-family: sans-serif;" href="https://github.com/jyoungblood/smoke.js.org">src</a>
+  </div>
+
+	<div class="title">
+		<h1><span>smoke.js</span></h1>
+		<h2><span>framework-agnostic styled alert</span><br /><span> system for javascript</h2>
+
+	</div>
+
+	<ul class="nav">
+		<li>Demos:</li>
+		<li><a href="#" rel="demo-alert">alert</a></li>
+		<li><a href="#" rel="demo-confirm">confirm</a></li>
+		<li><a href="#" rel="demo-prompt">prompt</a></li>
+		<li><a href="#" rel="demo-quiz">quiz</a></li>
+		<li><a href="#" rel="demo-signal">signal</a></li>
+	</ul>
+	<ul class="subnav">
+		<li><a href="docs/">DOCS</a></li>
+		<li><a href="http://github.com/jyoungblood/smoke.js">SOURCE</a></li>
+		<li><a href="http://github.com/jyoungblood/smoke.js/archive/master.zip">DOWNLOAD ZIP</a></li>
+	</ul>
+	
+
+<script src="control_client/stereo/jquery-1.8.1.min.js"></script>
+<script src="control_client/stereo/smoke.min.js"></script>
+<script>
+
+
+
+		var prompt_demo = function(ver){
+
+			var q = 'What\'s in the bag?';
+			if (ver == 2){
+				q = 'No no, you HAVE to answer.<br /> What\'s in the bag?';
+			}
+
+			smoke.prompt(q, function(e){
+				if (e){
+					smoke.alert('You have no idea how badly<br /> I need a bag of '+e+'. <br /><br /> Give it to me. Right now.<br />', false, {ok: "Sure"});
+				}else{
+					prompt_demo(2);
+				}
+			}, {
+				reverseButtons: true,
+				value: 'hammers',
+				ok: 'Have a look',
+				cancel: 'None of your business'
+			});
+			
+		};
+
+
+
+
+
+$(function(){
+
+			$('a[rel="demo-alert"]').on('click',function(e){
+				e.preventDefault();
+				smoke.alert("Wouldn't it be funny if Animal Collective was an actual<br /> collective of actual animals?", function(e){
+					smoke.alert('No really...it totally would.<br />I mean, just think about it.', false, {ok: "OK, whatever dude"});
+				},{
+					ok: "Yeah, probably"
+				});
+			});
+
+
+
+
+			$('a[rel="demo-confirm"]').on('click',function(e){
+				e.preventDefault();
+				smoke.confirm("Slippery breath inside<br /> banjo melted. Runny smoky. ",function(e){
+					if (e){
+						smoke.alert('Perfect. We\'ll be in touch.', false, {ok: "EXCELLENT"});
+					}else{
+						smoke.alert('Please...so sorry. You look good in dress, you look better on my floor.', false, {ok: "Uhh...bye?"});
+					}
+				}, {
+					reverseButtons: true,
+					ok: "AGREE",
+					cancel: "DISAGREE"
+				});
+			});
+
+
+
+			$('a[rel="demo-prompt"]').on('click',function(e){
+				e.preventDefault();
+				prompt_demo(1);
+			});
+			
+
+
+			$('a[rel="demo-quiz"]').on('click',function(e){
+				e.preventDefault();
+
+				smoke.quiz('Which of these things<br /> is the worst thing?', function (e){
+					if (e == 'DISCO'){
+						smoke.alert('nope. it\'s funk.', false, {ok: "Aww"});
+					}
+					if (e == 'REGGAE'){
+						smoke.alert('nope. it\'s disco.', false, {ok: "Shucks"});
+
+					}					
+					if (e == 'FUNK'){
+						smoke.alert('nope. it\'s reggae.', false, {ok: "Dang"});
+					}
+				}, 
+					{	button_1	:	"DISCO", 
+						button_2	: "REGGAE", 
+						button_3	: "FUNK", 
+						button_cancel: "NONE OF THEM"
+					}
+				);
+			});
+
+
+
+			$('a[rel="demo-signal"]').on('click',function(e){
+				e.preventDefault();
+				smoke.signal('Congratulations! You have just won a free iPod Touch!', function(){}, {duration: 5000, classname: "custom-class"});
+			});
+
+
+});
+
+</script>
+
+
+
+
+</body>
+</html>
